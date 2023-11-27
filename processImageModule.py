@@ -5,8 +5,7 @@ import matplotlib.patches as patches
 import pandas as pd
 import tensorflow as tf
 
-def processImage():
-
+def processImage(path):
 
   print('Loading model...', end='')
   PATH_TO_SAVED_MODEL="model2.tflite"
@@ -36,7 +35,8 @@ def processImage():
 
 
   # category_index = create_category_index_from_labelmap("/mydrive/SSD/customTF2-spectra/data/label_map.pbtxt",use_display_name=True)
-  image_path = "./images/N17_02_03_1.jpg"
+  # image_path = "./images/N17_02_03_1.jpg"
+  image_path = path
 
 
   def load_image_into_numpy_array(path):
@@ -55,7 +55,6 @@ def processImage():
 
   input_details = interpreter.get_input_details()
   image_np = load_image_into_numpy_array(image_path)
-  print("Image: ", image_np)
   input_tensor = (image_np).astype(np.uint8)
   input_tensor = np.expand_dims(input_tensor, axis=0)
 
@@ -108,6 +107,4 @@ def processImage():
   ax.axis('off')
 
   # Show the image
-  plt.show()
-
-processImage()
+  plt.savefig("cache/cached_image.jpg", bbox_inches="tight")

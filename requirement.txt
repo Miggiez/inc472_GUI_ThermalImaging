@@ -1,3 +1,7 @@
+tk
 customtkinter
 Pillow
 requests
+cv2
+matplotlib
+tensorflow
