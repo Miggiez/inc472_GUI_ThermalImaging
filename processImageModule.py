@@ -8,7 +8,7 @@ import tensorflow as tf
 def processImage(path):
 
   print('Loading model...', end='')
-  PATH_TO_SAVED_MODEL="model2.tflite"
+  PATH_TO_SAVED_MODEL="./model/model2.tflite"
   interpreter = tf.lite.Interpreter(PATH_TO_SAVED_MODEL)
   print('Done!')
   # category_index=label_map_util.create_category_index_from_labelmap("/mydrive/SSD/customTF2-spectra/data/label_map.pbtxt",use_display_name=True)
